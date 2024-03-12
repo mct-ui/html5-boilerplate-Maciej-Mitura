@@ -184,6 +184,18 @@ h1 {
   font-weight: 700;
   line-height: calc($baseline *4);
   margin-bottom: $space-m;
+  
+  @include mq(bp1)
+  {
+    font-size: $ms9;
+    line-height: calc($baseline * 6);
+  }
+
+  @include mq(bp2)
+  {
+    font-size: $ms11;
+    line-height: calc($baseline*8);
+  }
 }
 
 h2 {
@@ -253,15 +265,21 @@ hr {
 }
 
 a {
-}
-
-a:hover {
+  color: $color-primary;
 }
 
 a:visited {
+  color: $color-primary;
 }
 
+a:hover {
+  color: $color-primary-lighter;
+}
+
+
+
 a:active {
+  color: $color-primary-light;
 }
 
 /*---------------------------------------/*
@@ -275,6 +293,27 @@ a:active {
 */
 
 .o-row {
+  padding: $space-m $space-m 0;
+  display: flow-root;
+  &--primary
+  {
+    background-color: $color-primary ;
+    color: white;
+  }
+
+  &--dark
+  {
+    background-color: $color-text;
+    color: white;
+  }
+
+  &--l
+  {
+    @include mq(bp2)
+    {
+      padding: $space-xl $space-xl $space-m $space-xl;
+    }
+  }
 }
 
 /*
@@ -284,6 +323,10 @@ a:active {
 */
 
 .o-container {
+ // margin: 0 auto;
+ max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*
